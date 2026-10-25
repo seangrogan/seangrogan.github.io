@@ -39,12 +39,65 @@
         A newsletter of my research activities.
 
 
-- section: Published articles
+- section: Publications
   items:
-    - title: "I Came, I Saw, I Voted: Distance to Polling Locations and Voter Turnout in Ontario, Canada"
-      url: https://doi.org/10.1017/s0008423921000196
-      meta: With Holly Ann Garnett. Canadian Journal of Political Science, 2021
+    - title: "The last-minute voter: age and time of voting in Ontario, Canada"
+      url: https://doi.org/10.1080/17457289.2025.2568860
+      meta: Holly Ann Garnett, Sean Grogan. Journal of Elections, Public Opinion and Parties, 2025
+
+    - title: Using historical data to dynamically route post-disaster assessment unmanned aerial vehicles in the context of responding to tornadoes
+      url: https://doi.org/10.3390/app13074178
+      meta: Sean Grogan, Michel Gamache, Robert Pellerin. Applied Sciences, 2023
+
+    - title: Location of disaster assessment UAVs using historical tornado data
+      url: https://doi.org/10.1080/19475705.2022.2115407
+      meta: Sean Grogan, Robert Pellerin, Michel Gamache, Nathalie Perrier. Geomatics, Natural Hazards and Risk, 2022
 
     - title: Using tornado-related weather data to route unmanned aerial vehicles to locate damage and victims
       url: https://doi.org/10.1007/s00291-021-00640-1
-      meta: With Robert Pellerin and Michel Gamache. OR Spectrum, 2021
+      meta: Sean Grogan, Robert Pellerin, Michel Gamache. OR Spectrum, 2021
+
+    - title: "I came, I saw, I voted: Distance to Polling Locations and Voter Turnout in Ontario, Canada"
+      url: https://doi.org/10.1017/S0008423921000196
+      meta: Holly Ann Garnett, Sean Grogan. Canadian Journal of Political Science, 2021
+
+    - title: Dynamically Routing UAVs in the Aftermath of a Severe Tornado
+      meta: Sean Grogan, Michel Gamache, Robert Pellerin. Conference paper, ProLog 2019, Metz, France
+
+    - title: The use of unmanned aerial vehicles and drones in search and rescue operations — a survey
+      meta: Sean Grogan, Michel Gamache, Robert Pellerin. Conference paper, ProLog 2018, Hull, UK
+
+    - title: An adaptive neighborhood search algorithm for optimizing stochastic mining complexes
+      url: http://hdl.handle.net/1866/16160
+      meta: Sean Grogan. Master's thesis, Université de Montréal, 2016
+
+- section: Other contributions
+  items:
+    - title: "Who Gives? Who Gets? Who Wins? Who Cares? Campaign Finance in Local Races"
+      meta: Holly Ann Garnett. University of Toronto Press, 2024
+      description: >
+        I provided technical expertise processing Canadian census and federal
+        campaign finance data.
+
+    - title: "Where do donors come from? Using census data to predict donations to Canadian federal election candidates"
+      url: https://doi.org/10.1016/j.polgeo.2024.103077
+      meta: Holly Ann Garnett. Political Geography, 2024
+      description: >
+        I provided technical expertise processing Canadian census and federal
+        campaign finance data.
+
+    - title: "Public Perceptions of Elections Ontario in the 2022 Provincial Elections: A Twitter analysis"
+      meta: Madison MacGregor. 2023 Forum on Democratic Citizenship
+      description: >
+        I provided technical expertise pulling and doing the initial processing
+        of the Twitter data.
+
+    - title: "The Ontario Voter Experience: Understanding Ontario Voters"
+      meta: Holly Ann Garnett, Sean Grogan. Internal report for Elections Ontario, 2023
+
+    - title: Metaheuristic Improvements to COSMO Mine Links
+      meta: Sean Grogan. Internal report for Newmont Mining Corporation, 2016
+
+    - title: Applying mathematical models to complex mining operations at Newmont
+      url: https://reporter.mcgill.ca/applying-mathematical-models-to-complex-mining-operations-at-newmont/
+      meta: Sean Grogan. McGill Reporter, September 19, 2013
