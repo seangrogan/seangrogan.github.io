@@ -1,0 +1,49 @@
+# Projects on the home page.
+#
+# The page shows these sections in this order, and the items in each section
+# in this order. To reorder, cut and paste whole blocks.
+#
+# Add a section: copy a "- section:" block, including its items.
+# Add an item:   copy one "- title:" block inside a section's items.
+#
+#   title        the heading (required)
+#   url          where the title links (optional)
+#   meta         a short line under the title, e.g. the journal and year (optional)
+#   description  a sentence or two (optional). Markdown works: *italics*,
+#                `code`, [a link](https://example.com). Keep the ">" and indent.
+#   links        extra links under the description (optional), each with a
+#                label and a url
+#
+# Indentation matters: use spaces, never tabs, and line things up as below.
+# If a line has a colon or starts with a quote mark, wrap it in "double quotes".
+
+- section: Writing
+  items:
+    - title: Sean's Research Newsletter
+      url: https://seangrogan.substack.com/
+      meta: Newsletter on Substack
+      description: >
+        A newsletter of my research activities.
+
+- section: Software
+  items:
+    - title: great_circle_calculator
+      url: https://pypi.org/project/great-circle-calculator/
+      meta: Python package on PyPI
+      description: >
+        Functions for great-circle math: distance, bearings, midpoints,
+        intermediate points, and the point reached from a start, course and
+        distance. Version 2 adds other celestial bodies and custom units.
+      links:
+        - label: Source on GitHub
+          url: https://github.com/seangrogan/great_circle_calculator
+
+- section: Published articles
+  items:
+    - title: "I Came, I Saw, I Voted: Distance to Polling Locations and Voter Turnout in Ontario, Canada"
+      url: https://doi.org/10.1017/s0008423921000196
+      meta: With Holly Ann Garnett. Canadian Journal of Political Science, 2021
+
+    - title: Using tornado-related weather data to route unmanned aerial vehicles to locate damage and victims
+      url: https://doi.org/10.1007/s00291-021-00640-1
+      meta: With Robert Pellerin and Michel Gamache. OR Spectrum, 2021

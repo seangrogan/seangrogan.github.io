@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title | escape }}</title>
+{%- if site.tagline %}
+<meta name="description" content="{{ site.tagline | escape }}">
+{%- endif %}
+<style>
+  :root {
+    --green: #005838;
+    --brown: #6A5147;
+    --gold: #FFD51D;
+    --cream: #F4E1BE;
+
+    --paper: var(--cream);
+    --ink: #33261F;            /* brown, deepened for reading */
+    --ink-soft: var(--brown);
+    --heading: var(--green);
+    --link: var(--green);
+    --rule: #D9C29C;
+    --sign: var(--green);
+    --sign-edge: var(--cream);
+    --sign-name: var(--gold);
+    --sign-text: var(--cream);
+    --contour-color: var(--cream);
+    --contour-opacity: 0.25;   /* how strong the map is: 0 hides it, 1 is full strength */
+    --contour-blur: 2px;       /* how soft the lines are */
+    --serif: Georgia, Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0C2A1E;
+      --ink: #EFE0C4;
+      --ink-soft: #C9B595;
+      --heading: var(--cream);
+      --link: var(--gold);
+      --rule: #23463A;
+      --sign: #00664A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0C2A1E;
+    --ink: #EFE0C4;
+    --ink-soft: #C9B595;
+    --heading: var(--cream);
+    --link: var(--gold);
+    --rule: #23463A;
+    --sign: #00664A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+  .page { max-width: 44rem; margin: 0 auto; padding: 3rem 16px 4rem; }
+
+  /* The header is a trail sign: routed gold name on a green board */
+  .sign {
+    background: var(--sign);
+    border-radius: 16px;
+    padding: 8px;
+  }
+  .sign-inner {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 3px solid var(--sign-edge);
+    border-radius: 10px;
+    padding: 2.25rem 2rem 2rem;
+    text-align: center;
+  }
+  /* Contour map behind the name: the SVG is used as a mask, so its lines take
+     the colour below, whatever colour they were exported in. */
+  .contours {
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
+    opacity: var(--contour-opacity);
+    filter: blur(var(--contour-blur));
+  }
+  .contours::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--contour-color);
+    -webkit-mask: url("{{ '/assets/contours.svg' | relative_url }}") center / max(100%, 40rem) auto no-repeat;
+            mask: url("{{ '/assets/contours.svg' | relative_url }}") center / max(100%, 40rem) auto no-repeat;
+  }
+  .sign h1 {
+    margin: 0;
+    color: var(--sign-name);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  .sign p {
+    margin: 0.75rem auto 0;
+    max-width: 30rem;
+    color: var(--sign-text);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .intro { margin: 2.5rem 0 0; font-size: 1.2rem; line-height: 1.6; }
+  .intro p { margin: 0 0 1rem; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  section { margin-top: 3rem; }
+  h2 {
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--heading);
+    color: var(--heading);
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .items { list-style: none; margin: 0; padding: 0; }
+  .items > li + li { margin-top: 1.75rem; }
+  .items h3 { margin: 0; font-size: 1.2rem; line-height: 1.4; }
+  .items h3 a { color: var(--heading); text-decoration: none; }
+  .items h3 a:hover { text-decoration: underline; }
+  .meta { margin: 0.15rem 0 0; font-style: italic; color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
+  .desc { margin-top: 0.4rem; }
+  .desc p { margin: 0 0 0.5rem; }
+  .desc p:last-child { margin-bottom: 0; }
+  .desc code { font-size: 0.92em; }
+  .links { margin: 0.4rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+
+  .profiles {
+    list-style: none; margin: 0; padding: 0;
+    columns: 3 10rem;
+    column-gap: 2rem;
+  }
+  .profiles li { break-inside: avoid; padding: 0.15rem 0; }
+
+  @media (max-width: 480px) {
+    .page { padding-top: 1.5rem; }
+    .sign-inner { padding: 1.75rem 1.25rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="sign">
+    <div class="sign-inner">
+      <div class="contours" aria-hidden="true"></div>
+      <h1>{{ site.title | escape }}</h1>
+      {%- if site.tagline %}
+      <p>{{ site.tagline | escape }}</p>
+      {%- endif %}
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      {{ content }}
+    </div>
+
+    {%- for group in site.data.projects %}
+    <section aria-labelledby="section-{{ forloop.index }}">
+      <h2 id="section-{{ forloop.index }}">{{ group.section | escape }}</h2>
+      <ul class="items">
+        {%- for item in group.items %}
+        <li>
+          <h3>{% if item.url %}<a href="{{ item.url }}">{{ item.title | escape }}</a>{% else %}{{ item.title | escape }}{% endif %}</h3>
+          {%- if item.meta %}
+          <p class="meta">{{ item.meta | escape }}</p>
+          {%- endif %}
+          {%- if item.description %}
+          <div class="desc">{{ item.description | markdownify }}</div>
+          {%- endif %}
+          {%- if item.links %}
+          <p class="links">
+            {%- for link in item.links %}
+            <a href="{{ link.url }}">{{ link.label | escape }}</a>
+            {%- endfor %}
+          </p>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endfor %}
+
+    {%- if site.data.profiles %}
+    <section aria-labelledby="elsewhere">
+      <h2 id="elsewhere">Elsewhere</h2>
+      <ul class="profiles">
+        {%- for p in site.data.profiles %}
+        <li><a href="{{ p.url }}" rel="me">{{ p.name | escape }}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endif %}
+  </main>
+
+</div>
+</body>
+</html>

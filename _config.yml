@@ -1,1 +1,12 @@
-theme: jekyll-theme-midnight
+# Site settings. Change these two lines to change the name and the line under it.
+title: Sean Grogan
+tagline: Business intelligence, optimization and open-source maps — Toronto, Ontario
+
+# Everything else on the page comes from:
+#   index.md            the short introduction
+#   _data/projects.yml  the projects, grouped into sections
+#   _data/profiles.yml  the "Elsewhere" links
+
+# Files kept in the repo but not published.
+exclude:
+  - README.md

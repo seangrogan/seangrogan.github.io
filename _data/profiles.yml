@@ -1,0 +1,35 @@
+# Profiles in the "Elsewhere" section, shown in this order.
+# Each needs a name and a url. Cut and paste to reorder; delete a pair to remove it.
+
+- name: GitHub
+  url: https://github.com/seangrogan
+
+- name: PyPI
+  url: https://pypi.org/user/seangrogan/
+
+- name: Substack
+  url: https://seangrogan.substack.com/
+
+- name: LinkedIn
+  url: https://www.linkedin.com/in/seangrogan/
+
+- name: Google Scholar
+  url: https://scholar.google.ca/citations?user=7J9R0K0AAAAJ&hl=en
+
+- name: ORCID
+  url: https://orcid.org/0000-0002-1347-7874
+
+- name: ResearchGate
+  url: https://www.researchgate.net/profile/Sean-Grogan-2
+
+- name: Zotero
+  url: https://www.zotero.org/seangrogan
+
+- name: Twitter
+  url: https://www.twitter.com/SeanGrogan
+
+- name: Strava
+  url: https://www.strava.com/athletes/7776725
+
+- name: Lichess
+  url: https://lichess.org/@/seangrogan
