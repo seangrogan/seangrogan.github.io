@@ -14,9 +14,3 @@ Each `.yml` file has instructions at the top. Order in the file is order on the 
 The contour map behind the name is `assets/contours.svg`. To make it stronger, fainter or sharper, change `--contour-opacity` and `--contour-blur` near the top of `_layouts/home.html`. To use a different map, replace the file with a line drawing that has a transparent background: the lines can be any colour, but any filled background shape will cover the whole sign.
 
 `_layouts/home.html` is the page design. You shouldn't need to touch it to change content.
-
-## Notes
-
-- Opening `_layouts/home.html` directly in a browser shows `{{ … }}` and `{% … %}` tags. That's normal: GitHub fills them in when it builds the site.
-- Don't add a `.nojekyll` file; it switches the build off.
-- If an edit breaks the build, GitHub emails you, and the repo's **Actions** tab shows the error and the line it's on. The usual cause in a `.yml` file is a tab instead of spaces, or a title containing a colon without "quotes".
