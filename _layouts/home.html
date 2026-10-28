@@ -161,8 +161,9 @@
     display: inline-block;
     padding: 0.3rem 0.95rem;
     border: 2px solid var(--heading);
-    border-radius: 999px;
+    border-radius: 1.1rem;     /* a pill on one line, a rounded box on two */
     color: var(--heading);
+    text-wrap: balance;        /* when a label wraps, split it into even lines */
     font-size: 1rem;
     line-height: 1.35;
     text-decoration: none;
@@ -171,12 +172,13 @@
   .toc a[aria-current] { background: var(--heading); color: var(--paper); }
 
   /* nav: side — on wide screens the buttons sit in a column to the right of
-     the page and stay in view while scrolling. Narrower screens get the row. */
-  @media (min-width: 86rem) {
+     the page and stay in view while scrolling. Narrower screens get the row.
+     The two outer columns are always equal, so the page stays centred. */
+  @media (min-width: 75rem) {
     .page.nav-side {
-      max-width: calc(44rem + 2 * (18rem + 2.5rem) + 32px);
+      max-width: none;
       display: grid;
-      grid-template-columns: 18rem minmax(0, 44rem) 18rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 44rem) minmax(0, 1fr);
       column-gap: 2.5rem;
       align-items: start;
     }
@@ -188,7 +190,7 @@
       margin-top: 2.5rem;
     }
     .nav-side .toc ul { flex-direction: column; align-items: flex-start; }
-    .nav-side .toc a { white-space: nowrap; }
+    .nav-side .toc a { max-width: 11rem; text-align: center; }
   }
 
   @media (max-width: 480px) {
