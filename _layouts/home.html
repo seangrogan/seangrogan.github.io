@@ -179,7 +179,7 @@
     .page.nav-side {
       max-width: none;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 44rem) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, calc(44rem - 32px)) minmax(0, 1fr);  /* same column width as nav: top */
       column-gap: 2.5rem;
       align-items: start;
     }

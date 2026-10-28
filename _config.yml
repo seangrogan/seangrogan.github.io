@@ -4,7 +4,7 @@ tagline: "Optimization, GIS & Decision-Making Under Uncertainty Esprit du cœur 
 
 # Where the section buttons go: "top" for a row under the banner, or "side"
 # for a column beside the page on wide screens (phones always get the row).
-nav: top
+nav: side
 
 # Everything else on the page comes from:
 #   index.md            the short introduction
