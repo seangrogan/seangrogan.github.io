@@ -153,7 +153,8 @@
   .profiles li { break-inside: avoid; padding: 0.15rem 0; }
 
   /* Section buttons. They're built from the page's h2 headings, so a new
-     section (or a "## Heading" in index.md) gets a button automatically. */
+     section (or a "## Heading" in index.md) gets a button automatically.
+     For a shorter button label, give the heading data-nav="Label". */
   .toc { margin-top: 1.25rem; }
   .toc[hidden] { display: none; }
   .toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
@@ -189,8 +190,9 @@
       position: sticky; top: 1.5rem;
       margin-top: 2.5rem;
     }
-    .nav-side .toc ul { flex-direction: column; align-items: flex-start; }
-    .nav-side .toc a { max-width: 11rem; text-align: center; }
+    /* every button as wide as the widest one, like boards on a signpost */
+    .nav-side .toc ul { flex-direction: column; align-items: stretch; width: max-content; max-width: min(100%, 12.5rem); }
+    .nav-side .toc a { display: block; text-align: center; }
   }
 
   @media (max-width: 480px) {
@@ -276,7 +278,8 @@
       var item = document.createElement('li');
       var a = document.createElement('a');
       a.href = '#' + h.id;
-      a.textContent = h.textContent.trim();
+      // a heading can carry a shorter button label in data-nav="..."
+      a.textContent = h.getAttribute('data-nav') || h.textContent.trim();
       item.appendChild(a);
       list.appendChild(item);
       links.push(a);
