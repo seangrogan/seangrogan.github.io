@@ -2,7 +2,7 @@
 layout: home
 ---
 
-# About
+## Welcome!
 
 Hello! My name is Sean, and welcome to my GitHub Pages profile.
 
