@@ -33,3 +33,6 @@
 
 - name: Lichess
   url: https://lichess.org/@/seangrogan
+ 
+- name: Academic CV (PDF)
+  url: ./files/sean_grogan_cv.pdf
