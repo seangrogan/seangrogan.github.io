@@ -2,6 +2,8 @@
 layout: home
 ---
 
+# About
+
 Hello! My name is Sean, and welcome to my GitHub Pages profile.
 
 I work at the intersection of optimization, decision-making, and data, using mathematical modeling and geospatial analysis to tackle complex, real-world problems under uncertainty.
