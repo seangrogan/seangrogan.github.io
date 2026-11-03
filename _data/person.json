@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sean Grogan",
+  "url": "https://seangrogan.github.io/",
+  "jobTitle": "Manager, Business Intelligence",
+  "worksFor": {
+    "@type": "GovernmentOrganization",
+    "name": "Elections Ontario",
+    "url": "https://www.elections.on.ca/"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Polytechnique Montréal" },
+    { "@type": "CollegeOrUniversity", "name": "Université de Montréal" },
+    { "@type": "CollegeOrUniversity", "name": "McGill University" }
+  ],
+  "knowsAbout": [
+    "Operations research",
+    "Mathematical optimization",
+    "Stochastic optimization",
+    "Decision-making under uncertainty",
+    "Geographic information systems",
+    "Business intelligence",
+    "Data analytics",
+    "Python",
+    "Technical writing",
+    "Teaching"
+  ],
+  "sameAs": [
+    "https://orcid.org/0000-0002-1347-7874",
+    "https://scholar.google.ca/citations?user=7J9R0K0AAAAJ",
+    "https://github.com/seangrogan",
+    "https://www.linkedin.com/in/seangrogan/",
+    "https://pypi.org/user/seangrogan/",
+    "https://seangrogan.substack.com/",
+    "https://www.researchgate.net/profile/Sean-Grogan-2"
+  ]
+}

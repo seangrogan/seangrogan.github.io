@@ -8,6 +8,9 @@
 <!--<meta name="description" content="{{ site.tagline | escape }}">-->
 <meta name="description" content="{{ site.tagline | join: ' · ' | escape }}">
 {%- endif %}
+{%- if site.data.person %}
+<script type="application/ld+json">{{ site.data.person | jsonify }}</script>
+{%- endif %}
 <style>
   :root {
     --green: #005838;
