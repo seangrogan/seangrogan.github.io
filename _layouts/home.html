@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ site.title | escape }}</title>
 {%- if site.tagline %}
-<meta name="description" content="{{ site.tagline | escape }}">
+<!--<meta name="description" content="{{ site.tagline | escape }}">-->
+<meta name="description" content="{{ site.tagline | join: ' · ' | escape }}">
 {%- endif %}
 <style>
   :root {
@@ -209,7 +210,8 @@
       <div class="contours" aria-hidden="true"></div>
       <h1>{{ site.title | escape }}</h1>
       {%- if site.tagline %}
-      <p>{{ site.tagline | escape }}</p>
+      <!--<p>{{ site.tagline | escape }}</p>-->
+      <p>{{ site.tagline | join: "<br>" }}</p>
       {%- endif %}
     </div>
   </header>

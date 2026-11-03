@@ -12,11 +12,11 @@ At heart, I’m a researcher: I like learning, using what I’ve learned, and te
 
 This site is a list of things I’ve worked on. It’s not a full resume; if you really want that, you can track me down on LinkedIn. If you’re looking for my [academic CV, it is here](./files/sean_grogan_cv.pdf).
 
-Presently, I work in the Elector Data and Analytics division at Elections Ontario. Contractually speaking, I have no political opinions on any matters. 
+Presently, my day job is a manager in the Elector Data and Analytics division at Elections Ontario. Contractually speaking, I have no political opinions on any matters. 
 
-Before joining Elections Ontario, I was a Research Fellow at both the Laboratory of Elections and Democracy at the Royal Military College and the Institute of Intergovernmental Relations at Queen’s. My research focused on elector accessibility and was conducted in collaboration with Elections Ontario. I also helped other researchers in those groups with their data needs, as well as some at the Electoral Integrity Project (I was never a member, just a friend of the research group).
+Before joining Elections Ontario, I was a Research Fellow at both the Laboratory of Elections and Democracy at the Royal Military College and the Institute of Intergovernmental Relations at Queen’s. My research focused on elector accessibility and was conducted in collaboration with Elections Ontario. I also helped other researchers in those groups with their data needs, as well as some at the Electoral Integrity Project (I was never a member, just a friend and data wrangler of the research group).
 
-Before that, I completed a PhD at Polytechnique Montréal. My dissertation looked at how to locate and route unmanned aerial vehicles for disaster area reconnaissance, optimizing both under uncertainty.
+I completed a PhD at Polytechnique Montréal. My dissertation looked at how to locate and route unmanned aerial vehicles for disaster area reconnaissance, optimizing both under uncertainty.
 
 Earlier in my career, I worked in the mining sector in a range of roles, including haul truck operator, blasting surveyor, and long-range mine planner. Working on stochastic optimization of strategic, long-range mine plans was my gateway into Operations Research and Data Science.
 
