@@ -56,6 +56,15 @@
 
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
+    .site-footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+  .site-footer p { margin: 0; }
   @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
   }
@@ -188,6 +197,7 @@
       align-items: start;
     }
     .nav-side .sign { grid-column: 2; grid-row: 1; }
+    .nav-side .site-footer { grid-column: 2; grid-row: 3; }
     .nav-side main { grid-column: 2; grid-row: 2; }
     .nav-side .toc {
       grid-column: 3; grid-row: 2;
@@ -264,7 +274,9 @@
     </section>
     {%- endif %}
   </main>
-
+  <footer class="site-footer">
+    <p>Last updated {{ site.time | date: "%B %Y" }}</p>
+  </footer>
 </div>
 
 <script>
