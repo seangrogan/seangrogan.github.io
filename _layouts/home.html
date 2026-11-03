@@ -230,7 +230,7 @@
         <li>
           <h3>{% if item.url %}<a href="{{ item.url }}">{{ item.title | escape }}</a>{% else %}{{ item.title | escape }}{% endif %}</h3>
           {%- if item.meta %}
-          <p class="meta">{{ item.meta | escape }}</p>
+          <p class="meta">{{ item.meta | escape | replace: "Sean Grogan", "<strong>Sean Grogan</strong>" }}</p>
           {%- endif %}
           {%- if item.description %}
           <div class="desc">{{ item.description | markdownify }}</div>
