@@ -1,9 +1,9 @@
 # Site settings. Change these two lines to change the name and the line under it.
 title: Sean Grogan
 tagline:
-  - Optimization, GIS & Decision-Making Under Uncertainty
+  - Optimization, GIS, & Decision-Making Under Uncertainty
   - "Esprit du cœur : Researcher"
-  
+description: "Sean Grogan: operations research, GIS, and data analytics. Projects, publications, and writing."
 # Where the section buttons go: "top" for a row under the banner, or "side"
 # for a column beside the page on wide screens (phones always get the row).
 nav: side

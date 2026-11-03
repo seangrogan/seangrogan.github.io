@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ site.title | escape }}</title>
-{%- if site.tagline %}
-<!--<meta name="description" content="{{ site.tagline | escape }}">-->
+{%- if site.description %}
+<meta name="description" content="{{ site.description | escape }}">
+{%- elsif site.tagline %}
 <meta name="description" content="{{ site.tagline | join: ' · ' | escape }}">
-{%- endif %}
-{%- if site.data.person %}
+{%- endif %}{%- if site.data.person %}
 <script type="application/ld+json">{{ site.data.person | jsonify }}</script>
 {%- endif %}
 <style>
