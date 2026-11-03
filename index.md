@@ -10,7 +10,7 @@ I work at the intersection of optimization, decision-making, and data, using mat
 
 At heart, I’m a researcher: I like learning, using what I’ve learned, and teaching it. I tutored technical writing for nine years, judged youth science fairs, and volunteered analytics help to a youth nonprofit. I enjoy translating technical work for non-specialist audiences.
 
-This site is a list of things I’ve worked on. It’s not a full resume; if you really want that, you can track me down on LinkedIn. If you’re looking for my [academic CV, it is here](./files/sean_grogan_cv.pdf).
+This site is a list of things I’ve worked on. It’s not a full resume; if you really want that, you can track me down on LinkedIn. If you’re looking for my [academic CV, it is here](/files/sean_grogan_cv.pdf).
 
 Presently, my day job is a manager in the Elector Data and Analytics division at Elections Ontario. Contractually speaking, I have no political opinions on any matters. 
 
