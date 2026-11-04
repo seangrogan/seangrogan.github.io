@@ -18,3 +18,6 @@ timezone: America/Montreal
 # Files kept in the repo but not published.
 exclude:
   - README.md
+
+plugins:
+  - jekyll-sitemap
