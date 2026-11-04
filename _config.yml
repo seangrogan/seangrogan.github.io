@@ -19,5 +19,9 @@ timezone: America/Montreal
 exclude:
   - README.md
 
+url: https://seangrogan.github.io
+locale: en_US
+
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag

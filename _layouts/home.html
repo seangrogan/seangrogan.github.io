@@ -7,11 +7,9 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-{%- if site.description %}
-<meta name="description" content="{{ site.description | escape }}">
-{%- elsif site.tagline %}
-<meta name="description" content="{{ site.tagline | join: ' · ' | escape }}">
-{%- endif %}{%- if site.data.person %}
+{% seo title=false %}
+{%- if site.data.person %}
+{%- if site.data.person %}
 <script type="application/ld+json">{{ site.data.person | jsonify }}</script>
 {%- endif %}
 <style>
