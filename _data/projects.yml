@@ -23,17 +23,16 @@
       url: https://pypi.org/project/great-circle-calculator/
       meta: Python package on PyPI
       description: >
-        Functions for great-circle math: distance, bearings, midpoints,
-        intermediate points, and the point reached from a start, course and
-        distance. Version 2 adds other celestial bodies and custom units.
+        Functions for great-circle math: distance, bearings, midpoints, intermediate points, and the point reached from a start, course and distance. Version 2 adds other celestial bodies and custom units.
       links:
         - label: Source on GitHub
           url: https://github.com/seangrogan/great_circle_calculator
-    - title: Latex template for a annual birthday, anniversary, and event calendar
+
+    - title: Latex template for an annual birthday, anniversary, and event calendar
       url: https://github.com/seangrogan/latex-annual-birthday-calendar/
       meta: Latex template, GitHub.
       description: >
-        A calendar that shows the day of each month an event (such as a birthday) takes place. We use it in our hose to keep track of birthdays and other events in my home.
+        A calendar that shows the day of each month an event (such as a birthday) takes place. We use it in our house to keep track of birthdays and other events.
 
 - section: Writing
   items:
@@ -78,6 +77,7 @@
       meta: Holly Ann Garnett, Sean Grogan. Canadian Journal of Political Science, 2021
 
     - title: Dynamically Routing UAVs in the Aftermath of a Severe Tornado
+      url: https://publications.polymtl.ca/45484/
       meta: Sean Grogan, Michel Gamache, Robert Pellerin. Conference paper, ProLog 2019, Metz, France
 
     - title: The use of unmanned aerial vehicles and drones in search and rescue operations — a survey
