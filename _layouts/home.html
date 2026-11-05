@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ site.title | escape }}</title>
+<title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -113,6 +113,7 @@
   .intro { margin: 2.5rem 0 0; font-size: 1.2rem; line-height: 1.6; }
   .intro p { margin: 0 0 1rem; }
   .intro p:last-child { margin-bottom: 0; }
+  .lost { color: var(--heading); font-size: 1.5rem; font-weight: 700; line-height: 1.3; }
 
   section { margin-top: 3rem; }
   h2 {
@@ -215,6 +216,7 @@
       {{ content }}
     </div>
 
+    {%- unless page.content_only %}
     {%- for group in site.data.projects %}
     {%- assign sid = group.section | slugify %}
     <section aria-labelledby="{{ sid }}">
@@ -252,6 +254,7 @@
       </ul>
     </section>
     {%- endif %}
+    {%- endunless %}
   </main>
   <footer class="site-footer">
     <p>Last updated {{ site.time | date: "%B %Y" }}</p>
