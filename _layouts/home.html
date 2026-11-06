@@ -286,18 +286,25 @@
     nav.appendChild(list);
     nav.hidden = false;
 
-    // Highlight the button for the section you're reading.
-    if (!('IntersectionObserver' in window)) return;
-    var watch = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) {
-          if (a.hash === '#' + e.target.id) a.setAttribute('aria-current', 'true');
-          else a.removeAttribute('aria-current');
-        });
+    // Highlight the button for the section you're reading: the last heading
+    // that has scrolled into the top 30% of the screen. At the very bottom,
+    // highlight the last section, which is too short to scroll that far.
+    function update() {
+      var line = window.innerHeight * 0.3;
+      var current = 0;
+      heads.forEach(function (h, i) {
+        if (h.getBoundingClientRect().top <= line) current = i;
       });
-    }, { rootMargin: '0px 0px -70% 0px' });
-    heads.forEach(function (h) { watch.observe(h); });
+      var root = document.documentElement;
+      if (window.innerHeight + window.scrollY >= root.scrollHeight - 2) current = heads.length - 1;
+      links.forEach(function (a, i) {
+        if (i === current) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 <script data-goatcounter="https://seangrogan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
