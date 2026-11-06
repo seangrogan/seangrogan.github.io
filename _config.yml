@@ -25,3 +25,11 @@ locale: en_US
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/sean.jpg
+        alt: Photo of Sean

@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Sean Grogan
 ---
 
 ## Welcome!
