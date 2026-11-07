@@ -1,0 +1,32 @@
+# Newsletter feed updater for seangrogan.github.io.
+# Deploy as a Dockhand stack. Set these in the stack's environment variables:
+#   GITHUB_TOKEN    fine-grained token: this repo only, Contents read and write (mark as secret)
+#   BRANCH          branch to update: main (or newsfeed_test while testing)
+#   INTERVAL_HOURS  hours between checks (default 6)
+services:
+  newsfeed:
+    image: python:3.12-slim
+    container_name: github-pages-newsfeed
+    restart: unless-stopped
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      REPO: seangrogan/seangrogan.github.io
+      BRANCH: ${BRANCH:-main}
+      INTERVAL_HOURS: ${INTERVAL_HOURS:-6}
+      TZ: America/Toronto
+    volumes:
+      - newsfeed_repo:/repo
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends git ca-certificates > /dev/null
+        pip install -q --root-user-action=ignore feedparser pyyaml curl_cffi
+        if [ ! -d /repo/.git ]; then
+          git clone -q --branch "$$BRANCH" "https://x-access-token:$$GITHUB_TOKEN@github.com/$$REPO.git" /repo
+        fi
+        exec sh /repo/scripts/update_posts.sh
+
+volumes:
+  newsfeed_repo:
