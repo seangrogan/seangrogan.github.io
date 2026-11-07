@@ -1,0 +1,37 @@
+name: Build and publish site
+
+# Runs whenever anything is pushed: your own edits, or new posts from the
+# newsfeed container on the home server. Every branch is built as a check;
+# only main is published.
+on:
+  push:
+  workflow_dispatch:         # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+      - uses: actions/upload-pages-artifact@v4
+
+  deploy:
+    if: github.ref == 'refs/heads/main'   # only main goes live
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
