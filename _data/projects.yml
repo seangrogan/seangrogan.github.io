@@ -13,6 +13,9 @@
 #                `code`, [a link](https://example.com). Keep the ">" and indent.
 #   links        extra links under the description (optional), each with a
 #                label and a url
+#   feed         an RSS feed (optional). Its posts join the "Recent posts"
+#                sidebar (set how many in _config.yml), refreshed daily by
+#                .github/workflows/pages.yml
 #
 # Indentation matters: use spaces, never tabs, and line things up as below.
 # If a line has a colon or starts with a quote mark, wrap it in "double quotes".
@@ -38,14 +41,52 @@
   items:
     - title: Sean's Research Newsletter
       url: https://seangrogan.substack.com/
+      feed: https://seangrogan.substack.com/feed
       meta: Newsletter on Substack
       description: >
         A newsletter of my research activities.
     - title: The Navigation Lab
       url: https://thenavigationlab.substack.com/
+      feed: https://thenavigationlab.substack.com/feed
       meta: Newsletter on Substack
       description: >
         A newsletter on the science of navigating.
+    - title: The Decision Blueprint
+      url: https://thedecisionblueprint.substack.com/
+      feed: https://thedecisionblueprint.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        A newsletter on the art and science of making decisions.
+    - title: Sean Grogan Tutors
+      url: https://seangrogantutors.substack.com/
+      feed: https://seangrogantutors.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Programming and math tutorials.
+    - title: Sean's Self Hosted Settings
+      url: https://seanselfhosted.substack.com/
+      feed: https://seanselfhosted.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        The self-hosted software I'm trying out.
+    - title: Sean Grogan Photo
+      url: https://seangroganphoto.substack.com/
+      feed: https://seangroganphoto.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Shooting and sharing photos since 2007.
+    - title: Sean Grogan Decyphers Fitness Tech
+      url: https://decyperingfitnesstech.substack.com/
+      feed: https://decyperingfitnesstech.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Breaking down what the numbers on your fitness wearable mean.
+    - title: The Racing Journey
+      url: https://theracingjourney.substack.com/
+      feed: https://theracingjourney.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        From starter to finish line: my journey into improving my lap times.
 
 
 - section: Publications

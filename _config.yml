@@ -18,6 +18,10 @@ timezone: America/Montreal
 # Files kept in the repo but not published.
 exclude:
   - README.md
+  - scripts
+
+# How many newsletter posts the "Recent posts" sidebar shows (0 hides it).
+recent_posts: 5
 
 url: https://seangrogan.github.io
 locale: en_US

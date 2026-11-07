@@ -1,0 +1,57 @@
+name: Build and publish site
+
+on:
+  push:                      # any branch: fetches posts and checks the site builds
+  schedule:
+    - cron: "23 10 * * *"   # daily, around 5-6 am Toronto time
+  workflow_dispatch:         # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write            # to save new posts back to the repo
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Fetch newsletter posts
+        run: |
+          pip install feedparser pyyaml
+          python scripts/fetch_posts.py
+
+      - name: Save new posts to the repo
+        run: |
+          if [ -n "$(git status --porcelain _data/posts.yml)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add _data/posts.yml
+            git commit -m "Update newsletter posts"
+            git pull --rebase
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+      - uses: actions/upload-pages-artifact@v4
+
+  deploy:
+    if: github.ref == 'refs/heads/main'   # only main goes live
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
