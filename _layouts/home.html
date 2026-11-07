@@ -137,11 +137,6 @@
   .desc p:last-child { margin-bottom: 0; }
   .desc code { font-size: 0.92em; }
   .links { margin: 0.4rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
-  /* Recent posts: a sidebar on wide screens, a section after the page on narrow ones */
-  .recent { margin-top: 3rem; }
-  .posts { list-style: none; margin: 0; padding: 0; }
-  .posts li + li { margin-top: 0.75rem; }
-  .post-meta { display: block; color: var(--ink-soft); font-style: italic; font-size: 0.95rem; line-height: 1.4; }
 
   .profiles {
     list-style: none; margin: 0; padding: 0;
@@ -183,16 +178,6 @@
     }
     .nav-side .sign { grid-column: 2; grid-row: 1; }
     .nav-side .site-footer { grid-column: 2; grid-row: 3; }
-    .nav-side .recent {
-      grid-column: 1; grid-row: 2;
-      justify-self: end;
-      width: 100%; max-width: 15rem;
-      position: sticky; top: 1.5rem;
-      margin-top: 2.5rem;
-      font-size: 1rem; line-height: 1.45;
-    }
-    .nav-side .recent h2 { font-size: 1.2rem; }
-    .nav-side .recent .post-meta { font-size: 0.9rem; }
     .nav-side main { grid-column: 2; grid-row: 2; }
     .nav-side .toc {
       grid-column: 3; grid-row: 2;
@@ -234,6 +219,22 @@
     {%- unless page.content_only %}
     {%- for group in site.data.projects %}
     {%- assign sid = group.section | slugify %}
+    {%- if group.recent_posts %}
+    {%- if site.data.posts.size > 0 %}
+    <section aria-labelledby="{{ sid }}">
+      <h2 id="{{ sid }}">{{ group.section | escape }}</h2>
+      <ul class="items">
+        {%- for post in site.data.posts limit: group.recent_posts %}
+        <li>
+          <h3><a href="{{ post.url }}">{{ post.title | escape }}</a></h3>
+          <p class="meta">{{ post.source | escape }}{% if post.date != "" %} · {{ post.date | date: "%B %-d, %Y" }}{% endif %}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endif %}
+    {%- continue %}
+    {%- endif %}
     <section aria-labelledby="{{ sid }}">
       <h2 id="{{ sid }}">{{ group.section | escape }}</h2>
       <ul class="items">
@@ -272,19 +273,6 @@
     {%- endunless %}
   </main>
 
-  {%- if site.recent_posts and site.recent_posts > 0 and site.data.posts.size > 0 and page.content_only != true %}
-  <aside class="recent" aria-labelledby="recent-posts">
-    <h2 id="recent-posts">Recent posts</h2>
-    <ul class="posts">
-      {%- for post in site.data.posts limit: site.recent_posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title | escape }}</a>
-        <span class="post-meta">{% if post.date != "" %}{{ post.date | date: "%B %-d, %Y" }} · {% endif %}{{ post.source | escape }}</span>
-      </li>
-      {%- endfor %}
-    </ul>
-  </aside>
-  {%- endif %}
   <footer class="site-footer">
     <p>Last updated {{ site.time | date: "%B %Y" }}</p>
   </footer>

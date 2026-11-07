@@ -14,8 +14,11 @@
 #   links        extra links under the description (optional), each with a
 #                label and a url
 #   feed         an RSS feed (optional). Its posts join the "Recent posts"
-#                sidebar (set how many in _config.yml), refreshed daily by
-#                .github/workflows/pages.yml
+#                section. The newsfeed container on the home server updates
+#                them (scripts/compose.yaml)
+#
+# A section with "recent_posts: 5" instead of items lists the 5 newest posts
+# from all the feeds, newest first. It's hidden until there are posts.
 #
 # Indentation matters: use spaces, never tabs, and line things up as below.
 # If a line has a colon or starts with a quote mark, wrap it in "double quotes".
@@ -37,57 +40,8 @@
       description: >
         A calendar that shows the day of each month an event (such as a birthday) takes place. We use it in our house to keep track of birthdays and other events.
 
-- section: Writing
-  items:
-    - title: Sean's Research Newsletter
-      url: https://seangrogan.substack.com/
-      feed: https://seangrogan.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        A newsletter of my research activities.
-    - title: The Navigation Lab
-      url: https://thenavigationlab.substack.com/
-      feed: https://thenavigationlab.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        A newsletter on the science of navigating.
-    - title: The Decision Blueprint
-      url: https://thedecisionblueprint.substack.com/
-      feed: https://thedecisionblueprint.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        A newsletter on the art and science of making decisions.
-    - title: Sean Grogan Tutors
-      url: https://seangrogantutors.substack.com/
-      feed: https://seangrogantutors.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        Programming and math tutorials.
-    - title: Sean's Self Hosted Settings
-      url: https://seanselfhosted.substack.com/
-      feed: https://seanselfhosted.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        The self-hosted software I'm trying out.
-    - title: Sean Grogan Photo
-      url: https://seangroganphoto.substack.com/
-      feed: https://seangroganphoto.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        Shooting and sharing photos since 2007.
-    - title: Sean Grogan Decyphers Fitness Tech
-      url: https://decyperingfitnesstech.substack.com/
-      feed: https://decyperingfitnesstech.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        Breaking down what the numbers on your fitness wearable mean.
-    - title: The Racing Journey
-      url: https://theracingjourney.substack.com/
-      feed: https://theracingjourney.substack.com/feed
-      meta: Newsletter on Substack
-      description: >
-        From starter to finish line: my journey into improving my lap times.
-
+- section: Recent posts
+  recent_posts: 5
 
 - section: Publications
   items:
@@ -160,3 +114,54 @@
     - title: Applying mathematical models to complex mining operations at Newmont
       url: https://reporter.mcgill.ca/applying-mathematical-models-to-complex-mining-operations-at-newmont/
       meta: Sean Grogan. McGill Reporter, September 19, 2013
+
+- section: Blogs
+  items:
+    - title: Sean's Research Newsletter
+      url: https://seangrogan.substack.com/
+      feed: https://seangrogan.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        A newsletter of my research activities.
+    - title: The Navigation Lab
+      url: https://thenavigationlab.substack.com/
+      feed: https://thenavigationlab.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        A newsletter on the science of navigating.
+    - title: The Decision Blueprint
+      url: https://thedecisionblueprint.substack.com/
+      feed: https://thedecisionblueprint.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        A newsletter on the art and science of making decisions.
+    - title: Sean Grogan Tutors
+      url: https://seangrogantutors.substack.com/
+      feed: https://seangrogantutors.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Programming and math tutorials.
+    - title: Sean's Self Hosted Settings
+      url: https://seanselfhosted.substack.com/
+      feed: https://seanselfhosted.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        The self-hosted software I'm trying out.
+    - title: Sean Grogan Photo
+      url: https://seangroganphoto.substack.com/
+      feed: https://seangroganphoto.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Shooting and sharing photos since 2007.
+    - title: Sean Grogan Decyphers Fitness Tech
+      url: https://decyperingfitnesstech.substack.com/
+      feed: https://decyperingfitnesstech.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        Breaking down what the numbers on your fitness wearable mean.
+    - title: The Racing Journey
+      url: https://theracingjourney.substack.com/
+      feed: https://theracingjourney.substack.com/feed
+      meta: Newsletter on Substack
+      description: >
+        From starter to finish line: my journey into improving my lap times.
