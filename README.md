@@ -14,3 +14,4 @@ Each `.yml` file has instructions at the top. Order in the file is order on the 
 The contour map behind the name is `assets/contours.svg`. To make it stronger, fainter or sharper, change `--contour-opacity` and `--contour-blur` near the top of `_layouts/home.html`. To use a different map, replace the file with a line drawing that has a transparent background: the lines can be any colour, but any filled background shape will cover the whole sign.
 
 `_layouts/home.html` is the page design. You shouldn't need to touch it to change content.
+
