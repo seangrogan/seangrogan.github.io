@@ -5,6 +5,7 @@ its posts are labelled with that item's title. All posts go into one list,
 newest first. If a feed can't be reached, the posts saved from it last time
 are kept, so a Substack outage never empties the list on the site.
 """
+import sys
 from pathlib import Path
 from time import strftime
 
@@ -61,7 +62,7 @@ def get(url):
 def from_feed(url, source):
     response = get(url)
     if response is None:
-        return []
+        return None
     parsed = feedparser.parse(response.content)
     posts = []
     for entry in parsed.entries[:PER_FEED]:
@@ -81,12 +82,12 @@ def from_archive(url, source):
     base = url.rsplit("/feed", 1)[0]
     response = get(f"{base}/api/v1/archive?sort=new&offset=0&limit={PER_FEED}")
     if response is None:
-        return []
+        return None
     try:
         items = response.json()
     except ValueError:
         print(f"    {base}: the post list wasn't readable")
-        return []
+        return None
     return [{
         "title": item.get("title") or "Untitled",
         "url": item.get("canonical_url") or "",
@@ -97,22 +98,27 @@ def from_archive(url, source):
 
 
 def latest(url, source):
+    """The newest posts, or None if Substack couldn't be reached by any route."""
     for route in (from_feed, from_archive):
         posts = route(url, source)
-        if posts:
+        if posts is not None:
             return posts
-    return []
+    return None
 
 
 old = load(POSTS)
 posts = []
+failed = []
 for url, source in feeds():
     found = latest(url, source)
-    if found:
-        print(f"{source}: {len(found)} posts")
-    else:
+    if found is None:
+        failed.append(source)
         found = [p for p in old if p.get("feed") == url]
         print(f"{source}: unreachable, kept {len(found)} saved posts")
+    elif not found:
+        print(f"{source}: no posts yet")
+    else:
+        print(f"{source}: {len(found)} posts")
     posts.extend(found)
 
 posts.sort(key=lambda p: p["date"], reverse=True)
@@ -122,3 +128,9 @@ if not POSTS.exists() or POSTS.read_text(encoding="utf-8") != text:
     print("posts.yml updated")
 else:
     print("no change")
+
+# Exit code 2 tells update_posts.sh that some feeds failed (the posts file is
+# still written, keeping the saved posts for those feeds).
+if failed:
+    print(f"could not fetch: {', '.join(failed)}")
+    sys.exit(2)

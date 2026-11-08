@@ -3,6 +3,10 @@
 #   GITHUB_TOKEN    fine-grained token: this repo only, Contents read and write (mark as secret)
 #   BRANCH          branch to update: main (or newsfeed_test while testing)
 #   INTERVAL_HOURS  hours between checks (default 6)
+# Optional, for Telegram alerts (copy them from your Diun stack):
+#   TELEGRAM_BOT_TOKEN  the bot token (mark as secret)
+#   TELEGRAM_CHAT_ID    the chat to message
+#   ALERT_AFTER         failed checks in a row before alerting (default 2)
 services:
   newsfeed:
     image: python:3.12-slim
@@ -13,9 +17,21 @@ services:
       REPO: seangrogan/seangrogan.github.io
       BRANCH: ${BRANCH:-main}
       INTERVAL_HOURS: ${INTERVAL_HOURS:-6}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+      ALERT_AFTER: ${ALERT_AFTER:-2}
       TZ: America/Toronto
+      DEBIAN_FRONTEND: noninteractive
     volumes:
       - newsfeed_repo:/repo
+    healthcheck:
+      # "unhealthy" in Dockhand if no check has fully worked in two intervals
+      test: ["CMD", "sh", "/repo/scripts/healthcheck.sh"]
+      interval: 15m
+      timeout: 10s
+      retries: 1
+      start_period: 10m
+      start_interval: 30s
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -24,7 +40,11 @@ services:
         apt-get install -y -qq --no-install-recommends git ca-certificates > /dev/null
         pip install -q --root-user-action=ignore feedparser pyyaml curl_cffi
         if [ ! -d /repo/.git ]; then
-          git clone -q --branch "$$BRANCH" "https://x-access-token:$$GITHUB_TOKEN@github.com/$$REPO.git" /repo
+          if ! git clone -q --branch "$$BRANCH" "https://x-access-token:$$GITHUB_TOKEN@github.com/$$REPO.git" /repo; then
+            echo "Could not copy the repo from GitHub. Check GITHUB_TOKEN and BRANCH. Trying again in an hour."
+            sleep 3600
+            exit 1
+          fi
         fi
         exec sh /repo/scripts/update_posts.sh
 
