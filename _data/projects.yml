@@ -40,6 +40,12 @@
       description: >
         A calendar that shows the day of each month an event (such as a birthday) takes place. We use it in our house to keep track of birthdays and other events.
 
+    - title: Voice to Text Obsidian Toolbox
+      url: https://github.com/seangrogan/voice-to-text-obsidian-toolbox
+      meta: GitHub repository
+      description: >
+        A collection of scripts that I use to transcribe my voice notes to an Obsidian markdown file. It includes a script to convert audio files to text, a template for creating notes from the transcribed text, and a script to create a new note with the current date and time. There is also options to archive audio files after a set number of days, and to delete audio files after a set number of days.
+
 - section: Recent posts
   recent_posts: 5
 
