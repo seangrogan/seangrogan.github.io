@@ -145,6 +145,10 @@
   }
   .profiles li { break-inside: avoid; padding: 0.15rem 0; }
 
+  /* Photo at the end of the page, framed like the trail sign */
+  .closing-photo { margin: 3rem 0 0; padding: 8px; background: var(--sign); border-radius: 16px; }
+  .closing-photo img { display: block; width: 100%; height: auto; border-radius: 10px; }
+
   /* Section buttons. They're built from the page's h2 headings, so a new
      section (or a "## Heading" in index.md) gets a button automatically.
      For a shorter button label, give the heading data-nav="Label". */
@@ -270,6 +274,11 @@
       </ul>
     </section>
     {%- endif %}
+
+    <figure class="closing-photo">
+      <img src="{{ '/assets/grand_canyon.jpg' | relative_url }}" width="1600" height="800" loading="lazy"
+           alt="Photographing the Grand Canyon from a rocky overlook under a cloudy sky">
+    </figure>
     {%- endunless %}
   </main>
 
@@ -325,6 +334,5 @@
   })();
 </script>
 <script data-goatcounter="https://seangrogan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <img src="/assets/grand_canyon.jpg" alt="grand canyon">
 </body>
 </html>
